@@ -79,7 +79,6 @@ const About = () => {
                     </div>
                 </div>
                 <div className="btn-block-about">
-                    <button className="consult"><a href="/shop">Бесплатная консультация</a></button>
                 </div>
                </div>
         </div>
