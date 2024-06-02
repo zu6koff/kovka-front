@@ -1,0 +1,31 @@
+.footer{
+    background-color: #2c2e31;
+    width: 100%;
+    height: auto;
+}
+.content-footer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3%;
+}
+.footerh{
+    color: rgb(224, 123, 76);
+    font-size: 1.4rem;
+}
+.footeremail{
+    color: white;
+}
+.footersocial{
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.copyrite{
+    color: rgb(224, 123, 76);
+    font-size: 0.8rem;
+}

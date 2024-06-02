@@ -1,0 +1,135 @@
+.about{
+    background-image:linear-gradient(rgba(65, 60, 60, 0.7), rgba(0, 0, 0, 0.8)), url(https://0fx825678.urest.org/__scale/uploads/s/x/i/p/xip56oooiblq/img/full_Cw00lhDv.jpg?quality=60&width=1500&webp=1);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.about-block1{
+    background-color: rgb(243, 243, 243);
+    padding-top: 5%;
+    width: 100%;
+    height: auto;
+    display: flex;
+   justify-content: center;
+}
+.block1{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imgmast img{
+    width: 100%;
+}
+.texth{
+    padding-top: 2%;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.textp{
+    padding-top: 2%;
+    width: 65%;
+    font-size: 1.1rem;
+    
+}
+.in_catalog{
+    background-color: black;
+    color: white;
+}
+.about-block2{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    
+}
+.stats{
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    color: white;
+}
+.stat{
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.stat-number{
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+.stat-text{
+    font-size: 1.1rem;
+    text-align: center;
+}
+.about-block3{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 2%;
+}
+.masters-block{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+.masters-card{
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.texth2{
+    font-size: 1.5rem;
+    padding: 3%;
+}
+.card{
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+.imgcard img{
+    width:400px;
+    height: 400px;
+    object-fit: cover;
+}
+.textcard{
+    padding: 5%;
+}
+.textcard h2{
+    text-align: center;
+}
+.btn-block-about{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+}
+.btn-block-about button{
+    width: 300px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}

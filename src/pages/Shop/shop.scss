@@ -1,0 +1,141 @@
+.catalog{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.conteiner-slider{
+  background-color:rgb(243, 243, 243); 
+  padding-top: 5%;
+  padding-bottom: 5%;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.block1{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imgmast img{
+  width: 100%;
+}
+.texth{
+  padding-top: 2%;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.textp{
+  padding-top: 2%;
+  width: 65%;
+  font-size: 1.1rem;
+  
+}
+.shop-container {
+  width: 65%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-top:50px
+}
+.category-list {
+  width: 20%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
+.category-list ul{
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; 
+}
+
+.category-list li {
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ebeaea;
+  border-left: none;
+  border-right: none;
+  background-color: #ffffff;
+}
+
+.category-list li:hover {
+  background-color:#e28b4e;
+}
+
+.category-list li.active {
+  background-color: #e28b4e;
+}
+
+.product-list-main{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 100px;
+}
+
+.product-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 30px;
+  transition: opacity 0.3s ease-out;
+}
+
+.product-card {
+  width: 250px;
+  height: 350px;
+  transition: box-shadow 0.3s ease;
+  border-bottom: 1px solid #000000;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  height: 70%; 
+  object-fit:cover;
+}
+
+.product-card p {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10%;
+}
+
+.pagination button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  margin: 0 10px;
+}
+  

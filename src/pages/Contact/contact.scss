@@ -1,0 +1,120 @@
+.contact {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(243, 243, 243);
+    padding-bottom: 10%;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 5%;
+    padding-bottom: 2%;
+}
+
+.contact-block {
+    width: 70%; 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-info-main {
+    width: 40%; 
+    padding: 2%;
+}
+
+.contact-info {
+    padding: 2%;
+}
+
+.title-contacts {
+    width: 100%;
+    font-size: 1.5rem;
+    padding-bottom: 2%;
+    color: rgb(224, 123, 76);
+}
+
+.phone,
+.email,
+.adress {
+    display: flex;
+    align-items: center;
+}
+
+.publics {
+    padding: 2%;
+    padding-top: 10%;
+}
+
+.publics h3 {
+    font-size: 1.7rem;
+    color: rgb(224, 123, 76);
+    padding-bottom: 2%;
+}
+
+.img-social {
+    display: flex;
+    align-items: center;
+}
+
+.imgcon1 {
+    width: 35px;
+    height: 35px;
+}
+
+.imgcon2 {
+    width: 37px;
+    height: 37px;
+}
+
+.map {
+    width: 60%;
+    height: auto;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+#map{
+    width: 100%;
+    height: 450px;
+}
+.maps {
+    width: 100%;
+    height: auto; 
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media only screen and (max-width: 768px) {
+    .contact-block {
+        width: 100%; /* Изменяем ширину блока контактов на 100% */
+    }
+
+    .contact-info-main {
+        width: 100%; /* Изменяем ширину основной информации контакта на 100% */
+    }
+
+    .map {
+        width: 100%; /* Изменяем ширину карты на 100% */
+    }
+
+    /* Центрирование элементов */
+    .contact,
+    .contact-block,
+    .contact-info-main,
+    .contact-info,
+    .title-contacts,
+    .publics,
+    .map {
+        margin: auto;
+    }
+
+    /* Дополнительное центрирование некоторых элементов */
+    .title,
+    .publics h3,
+    .img-social {
+        text-align: center;
+    }
+}

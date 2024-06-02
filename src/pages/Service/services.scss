@@ -1,0 +1,110 @@
+.service-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.service-block1{
+    background-color: rgb(243, 243, 243);
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+}
+.img-service{
+    width: 65%; 
+    height: 370px; 
+    overflow: hidden;
+}
+.img-service img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+}
+.img-service h1{
+    margin-top: 10%;
+    font-size: 1.5rem;
+    color: black;
+}
+.textpp{
+    padding-top: 2%;
+    width: 42%;
+    font-size: 1.1rem;
+}
+.service-block2{
+    background-attachment: fixed;
+    background-image: linear-gradient(rgba(65, 60, 60, 0.7), rgba(0, 0, 0, 0.8)), url(https://0fx825678.urest.org/__scale/uploads/s/x/i/p/xip56oooiblq/img/full_Cw00lhDv.jpg?quality=60&width=1500&webp=1);
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+    position: relative;
+}
+.service-list1 {
+    width: 65%;
+    padding: 25px;
+}
+.service-list1 ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.service-list1 h2 {
+    color: rgb(247, 247, 247);
+    padding-left: 20px;
+}
+.service-list1 li {
+    color: rgb(247, 247, 247);
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.1px solid rgb(175, 175, 175);
+    padding: 20px;
+}
+/* Стили для планшетов */
+@media only screen and (max-width: 1024px) {
+    .service-block1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-service img {
+        width: 80%;
+        height: auto;
+    }
+
+    .texth h1 {
+        font-size: 24px;
+    }
+
+    .textpp p {
+        font-size: 16px;
+    }
+}
+
+/* Стили для телефонов */
+@media only screen and (max-width: 768px) {
+    .service-block1 {
+        padding: 10px;
+    }
+
+    .img-service img {
+        width: 100%;
+    }
+
+    .texth h1 {
+        font-size: 20px;
+    }
+
+    .textpp p {
+        font-size: 14px;
+    }
+}

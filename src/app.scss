@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -ms-user-select: none; 
+		-moz-user-select: none; 
+		-webkit-user-select: none; 
+		user-select: none; 
+        font-family: 'Fira Sans', 'Tahoma', 'Geneva', 'sans-serif';
+        line-height: 162% !important;
+        scroll-behavior: smooth;
+}
+    
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul{
+    list-style: none;
+}
+
+.conteiner{
+    width: 100%;
+    max-width: 1110px;
+    margin: 0 auto;
+}
+
+
+@import "/src/Layout/Header/header.scss";
+@import "/src/Layout/Footer/footer.scss";
+@import "/src/pages/Home/home.scss";
+@import "/src/pages/Shop/shop.scss";
+@import "src/pages/ProductPage/productpage.scss";
+@import "src/pages/Login/login.scss";
+@import "src/Layout/layout.scss";
+@import "src/pages/About/about.scss";
+@import "src/pages/Contact/contact.scss";
+@import "src/pages/Admin/admin.scss";
+@import "src/pages/Admin/addproductform.scss";
+@import "src/pages/Admin/editproductform.scss";
+@import "src/pages/ProductPage/orderform.scss";
+@import "src/pages/Service/services.scss";

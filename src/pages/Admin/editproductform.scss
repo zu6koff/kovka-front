@@ -1,0 +1,107 @@
+.edit-product-form {
+  max-width: 100%;
+  max-height: 600px;
+  overflow-y: scroll;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.edit-product-form::-webkit-scrollbar{
+  display: none;
+}
+.edit-product-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.edit-product-form input[type="text"],
+.edit-product-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.edit-product-form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #e28b4e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-product-form button:hover {
+  background-color: #b66429;
+}
+
+.edit-product-form button:last-child {
+  background-color: #e28b4e;
+}
+
+.edit-product-form button:last-child:hover {
+  background-color: #b66429;
+}
+
+.edit-product-form img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 50px;
+  color: #999;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #333;
+}
+.info-field-container{
+  width: 100%;
+  border-radius: 4px;
+ 
+}
+.info-field {
+  position: relative; 
+  display: flex;
+  column-gap: 10px;
+}
+.remove-info-field-button {
+    position: absolute; 
+    top: -10px; 
+    right: 0; 
+    z-index: 1; 
+}
+
+.remove-info-field-button{
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF0000'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E");
+  background-size: cover;
+  cursor: pointer;
+}
+.image-container{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}

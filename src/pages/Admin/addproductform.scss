@@ -1,0 +1,60 @@
+.add-product-form {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative; 
+  }
+  
+  .add-product-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .add-product-form input[type="text"],
+  .add-product-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-product-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #e28b4e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-product-form button:hover {
+    background-color: #b66429;
+  }
+  
+  .add-product-form button:last-child {
+    background-color:#e28b4e;
+  }
+  
+  .add-product-form button:last-child:hover {
+    background-color: #b66429;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 50px;
+    color: #999;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    color: #333;
+  }

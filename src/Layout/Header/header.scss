@@ -1,0 +1,139 @@
+.header {
+    width: 100%;
+    padding: 10px 0 10px;
+    font-size: 1.1rem;
+}
+
+.header_inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header_links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    column-gap: 25px;
+}
+
+.header_links ul li {
+    margin-right: 20px;
+}
+
+.header_links a::after {
+    background-color: #f66d52; 
+    display: block;
+    content: "";
+    height: 2px; 
+    width: 0%;
+    transition: width .3s ease-in-out;
+}
+
+.header_links a:hover:after,
+.header_links a:focus:after {
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 75px;
+}
+
+.header_call_trash {
+    display: flex;
+    align-items: center;
+    column-gap: 70px;
+}
+
+.header_call_trash img {
+    width: 35px;
+}
+
+.burger_menu {
+    display: none;
+    cursor: pointer;
+}
+
+.burger_menu .line {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px;
+    transition: transform 0.4s ease;
+}
+
+.burger_menu.open .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger_menu.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger_menu.open .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (min-width: 769px) {
+    .burger_menu {
+        display: none;
+    }
+    
+    .header_links {
+        display: flex;
+    }
+    
+    .header_call_trash {
+        display: flex;
+    }
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    .header_links {
+        position: fixed;
+        top: 10%;
+        right: -100%; /* Начальное положение за пределами экрана */
+        width: 1000%; /* Ширина меню */
+        max-width: 100vw; /* Максимальная ширина меню */
+        height: 100vh; /* Занимает всю высоту экрана */
+        background-color: #fff;
+        padding: 20px;
+        transition:  right 0.3s ease; /* Анимация при открытии/закрытии */
+        z-index: 999; /* Перекрывает остальные элементы */
+    }
+
+    .header_links.open {
+        right: 0; /* Показывает меню, выезжая слева */
+    }
+
+    .burger_menu {
+        display: block;
+    }
+
+    .header_inner{
+        display: flex;
+       justify-content: space-between;
+       padding: 10px 50px 10px 20px;
+    }
+
+    .header_links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header_links ul li {
+        margin-bottom: 15px;
+    }
+
+    .header_call_trash {
+        display: none;
+    }
+}
