@@ -6,71 +6,111 @@
 
 .conteiner-slider{
   background-color:rgb(243, 243, 243); 
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding: 5%;
   width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
 }
+
 .block1{
-  width: 60%;
+  width: 65%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .imgmast img{
   width: 100%;
 }
+
 .texth{
   padding-top: 2%;
   font-size: 1.5rem;
   font-weight: bold;
 }
+
 .textp{
   padding-top: 2%;
   width: 65%;
   font-size: 1.1rem;
-  
 }
+
 .shop-container {
-  width: 65%;
-  margin: 0 auto;
+  width: 80%;
   display: flex;
   justify-content: center;
-  margin-top:50px
+  padding: 0 50px 0 50px;
 }
+
 .category-list {
-  width: 20%;
-  height: 20%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 50px;
+  width: 55%;
 }
-.category-list ul{
+
+.category-list select {
+  width: 30%;
+  padding: 10px;
+  font-size: 22px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.category-list select:hover {
+  background-color: #e28b4e;
+}
+
+.category-list select option {
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.category-list select option:hover {
+  background-color: #e28b4e;
+}
+
+.category-list select option:checked {
+  background-color: #e28b4e;
+  color: white;
+}
+
+.category-list ul {
   width: 100%;
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around; 
+  padding: 0;
+  margin: 0;
 }
 
 .category-list li {
   font-size: 1.1rem;
-  cursor: pointer;
+}
+
+.category-list li p {
   padding: 10px;
-  margin-right: 10px;
+  margin: 0;
+  cursor: pointer;
   border: 1px solid #ebeaea;
-  border-left: none;
-  border-right: none;
+  border-top: none;
   background-color: #ffffff;
+  transition: background-color 0.3s ease;
 }
 
-.category-list li:hover {
-  background-color:#e28b4e;
-}
-
-.category-list li.active {
+.category-list li p:hover {
   background-color: #e28b4e;
+}
+
+.category-list li.active p {
+  background-color: #e28b4e;
+}
+
+.category-list input[type="text"] {
+  width: 30%;
+  padding: 10px;
+  font-size: 22px;
+  background-color: #ffffff;
+  border: 1px solid #ebeaea;
 }
 
 .product-list-main{
@@ -90,8 +130,8 @@
 }
 
 .product-card {
-  width: 250px;
-  height: 350px;
+  width: 300px;
+  height: 400px;
   transition: box-shadow 0.3s ease;
   border-bottom: 1px solid #000000;
 }
@@ -121,7 +161,7 @@
 }
 
 .pagination button {
-  background-color: #4CAF50;
+  background-color: #e28b4e;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -137,5 +177,95 @@
 
 .pagination span {
   margin: 0 10px;
+}
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .shop-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 50px 0 50px;
+  }
+  .product-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+  .product-list-main{
+    padding-left: 0px;
+  }
+  .product-card {
+    width: 250px;
+    height: 300px;
+  }
+  .texth {
+    font-size: 1.3rem;
+  }
+  .textp {
+    width: 100%;
+    font-size: 1rem;
+  }
+  .category-list {
+    padding: 20px;
+    width: 75%;
+  }
+  .category-list select,
+  .category-list input[type="text"] {
+    width: 40%;
+    font-size: 18px;
+    padding: 8px;
+  }
+  .pagination button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .conteiner-slider{
+    padding: 25px;
+    
+  }
+  .shop-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 25px 0 25px;
+  }
+  .product-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 50px;
+  }
+  .product-list-main{
+    padding-left: 0px;
+  }
+  .product-card {
+    width: 300px;
+    height: 350px;
+  }
+  .texth {
+    font-size: 32px;
+  }
+  .textp {
+    width: 100%;
+    font-size: 14.4px;
+  }
+  .category-list {
+    padding: 10px;
+    width: 75%;
+  }
+  .category-list select,
+  .category-list input[type="text"] {
+    width: 45%;
+    font-size: 14.4px;
+    padding: 5px;
+  }
+  .pagination button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
 }
   
