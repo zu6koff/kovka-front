@@ -87,34 +87,57 @@
 }
 
 /* Медиа-запрос для мобильных устройств */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 425px) {
     .contact-block {
-        width: 100%; /* Изменяем ширину блока контактов на 100% */
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .contact-info-main {
-        width: 100%; /* Изменяем ширину основной информации контакта на 100% */
-    }
-
-    .map {
-        width: 100%; /* Изменяем ширину карты на 100% */
-    }
-
-    /* Центрирование элементов */
-    .contact,
-    .contact-block,
     .contact-info-main,
-    .contact-info,
-    .title-contacts,
-    .publics,
     .map {
-        margin: auto;
+        width: 100%;
+        text-align: center;
     }
 
-    /* Дополнительное центрирование некоторых элементов */
-    .title,
-    .publics h3,
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .title-contacts,
+    .publics h3 {
+        font-size: 1.2rem;
+    }
+
+    .phone p,
+    .email p,
+    .adress p {
+        font-size: 0.9rem;
+    }
+
+    .phone img,
+    .email img,
+    .adress img {
+        width: 20px;
+        height: 20px;
+    }
+
     .img-social {
-        text-align: center;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .imgcon1 {
+        width: 20px;
+        height: 20px;
+    }
+
+    .imgcon2 {
+        width: 35px;
+        height: 35px;
+    }
+
+    #map {
+        height: 300px;
     }
 }
