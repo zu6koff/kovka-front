@@ -144,3 +144,52 @@
         height: 300px;
     }
 }
+
+/* Медиа-запрос для планшетов */
+@media only screen and (max-width: 768px) {
+    .contact-block {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-info-main,
+    .map {
+        width: 100%;
+        text-align: center;
+    }
+    .title {
+        font-size: 1.5rem; 
+    }
+    .title-contacts,
+    .publics h3 {
+        font-size: 1.5rem; 
+    }
+    .phone p,
+    .email p,
+    .adress p {
+        font-size: 1.2rem; 
+    }
+    .phone img,
+    .email img,
+    .adress img {
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+        margin-left: 150px;
+    }
+    .img-social {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .imgcon1 {
+        width: 23px; 
+        height: 23px;
+    }
+    .imgcon2 {
+        width: 35px; 
+        height: 35px;
+    }
+    #map {
+        height: 400px; 
+    }
+}
