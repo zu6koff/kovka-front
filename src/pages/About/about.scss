@@ -8,31 +8,36 @@
 }
 .about-block1{
     background-color: rgb(243, 243, 243);
-    padding-top: 5%;
+    padding: 5%;
     width: 100%;
     height: auto;
     display: flex;
    justify-content: center;
 }
 .block1{
-    width: 60%;
+    width: 65%;
     display: flex;
     flex-direction: column;
+    column-gap: 50px;
     align-items: center;
 }
 .imgmast img{
     width: 100%;
 }
 .texth{
-    padding-top: 2%;
     font-size: 1.5rem;
     font-weight: bold;
 }
 .textp{
-    padding-top: 2%;
     width: 65%;
     font-size: 1.1rem;
-    
+}
+.btn-block{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 25px;
 }
 .in_catalog{
     background-color: black;
@@ -43,7 +48,6 @@
     height: auto;
     display: flex;
     justify-content: center;
-    
 }
 .stats{
     width: 70%;
@@ -67,7 +71,7 @@
     font-weight: bold;
 }
 .stat-text{
-    font-size: 1.1rem;
+    font-size: 20px;
     text-align: center;
 }
 .about-block3{
@@ -118,18 +122,127 @@
 .textcard h2{
     text-align: center;
 }
-.btn-block-about{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    padding: 5%;
-}
 .in_catalog{
     width: 300px;
     height: 50px;
-    background-color: black;
-    color: white;
-    font-size: 1.2rem;
     border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+}
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+    .about-block1, .about-block2, .about-block3 {
+        padding: 50px; 
+    }
+    .block1, .masters-block {
+        width: 100%; 
+        padding: 0 10px; 
+    }
+    .imgmast img {
+        width: 100%; 
+        height: 350px;
+        object-fit: cover; 
+        object-position: center; 
+    }
+    .texth {
+        padding-top: 2%;
+    }
+    .textp {
+        width: 100%; 
+        font-size: 18px; 
+        padding: 0 10px;
+    }
+    .stats {
+        width: 90%; 
+    }
+    .stat {
+        width: 45%; 
+        margin-bottom: 10px; 
+    }
+    .masters-card {
+        width: 100%; 
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 65%; 
+        margin-bottom: 20px; 
+        padding: 20px;
+    }
+    .textcard{
+        padding: 2%;
+        font-size: 18px;
+    }
+    .imgcard img {
+        width: 350px;
+        height: 400px; 
+        object-fit:fill; 
+        object-position: center; 
+    }
+    .in_catalog{
+        width: 250px;
+        height: 50px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .about-block1, .about-block2, .about-block3 {
+        padding: 25px; 
+    }
+    .block1, .masters-block {
+        width: 100%; 
+    }
+    .imgmast img {
+        width: 375px; 
+        height: 250px;
+        object-fit: cover; 
+        object-position: center; 
+    }
+    .texth {
+        padding-top: 2%;
+        text-align: center;
+    }
+    .textp {
+        width: 100%; 
+        font-size: 14.4px; 
+    }
+    .stats {
+        width: 100%; 
+    }
+    .stat {
+        width: 45%; 
+        margin-bottom: 10px; 
+    }
+    .stat-number{
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .stat-text{
+        font-size: 14.4px;
+        text-align: center;
+    }
+    .masters-card {
+        width: 100%; 
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 100%; 
+        margin-bottom: 25px; 
+        padding: 10px;
+    }
+    .textcard{
+        padding: 2%;
+        font-size: 14.4px;
+    }
+    .imgcard img {
+        width: 325px;
+        height: 325px; 
+        object-fit: cover; 
+        object-position: center; 
+    }
+    .in_catalog{
+        width: 150px;
+        height: 35px;
+        font-size: 14.4px;
+    }
 }
