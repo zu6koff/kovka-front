@@ -9,29 +9,26 @@
     height: auto;
     display: flex;
     flex-direction: column;
+    column-gap: 10px;
     align-items: center;
-    padding: 3%;
+    padding: 2%;
 }
 
 .footerh {
     color: rgb(224, 123, 76);
     font-size: 1.4rem;
     text-align: center; 
-    margin-bottom: 10px; 
 }
 
 .footeremail {
     color: white;
     text-align: center; 
-    margin-bottom: 10px; 
 }
 
 .footersocial {
-    padding: 1%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 10px; 
 }
 
 .footersocial img {
@@ -49,8 +46,8 @@
 .copyrite {
     color: rgb(224, 123, 76);
     font-size: 0.8rem;
-    text-align: center; /* Центрирование текста */
-    margin-bottom: 10px; /* Отступ между элементами */
+    text-align: center; 
+    margin-bottom: 10px;
 }
 
 /* Медиа-запрос для планшетов */
