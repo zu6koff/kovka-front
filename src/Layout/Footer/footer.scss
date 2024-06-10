@@ -1,9 +1,10 @@
-.footer{
+.footer {
     background-color: #2c2e31;
     width: 100%;
     height: auto;
 }
-.content-footer{
+
+.content-footer {
     width: 100%;
     height: auto;
     display: flex;
@@ -11,21 +12,81 @@
     align-items: center;
     padding: 3%;
 }
-.footerh{
+
+.footerh {
     color: rgb(224, 123, 76);
     font-size: 1.4rem;
+    text-align: center; 
+    margin-bottom: 10px; 
 }
-.footeremail{
+
+.footeremail {
     color: white;
+    text-align: center; 
+    margin-bottom: 10px; 
 }
-.footersocial{
+
+.footersocial {
     padding: 1%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-
+    margin-bottom: 10px; 
 }
-.copyrite{
+
+.footersocial img {
+    max-width: 100%;
+    margin: 0 10px; 
+}
+.imgcon2 {
+    max-width: 35px; 
+    height: auto; 
+}
+.imgcon{
+    width: 48px;
+    height: auto;
+}
+.copyrite {
     color: rgb(224, 123, 76);
     font-size: 0.8rem;
+    text-align: center; /* Центрирование текста */
+    margin-bottom: 10px; /* Отступ между элементами */
+}
+
+/* Медиа-запрос для планшетов */
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+    .content-footer {
+        padding: 1%;
+    }
+    .footerh {
+        font-size: 1.1rem;
+    }
+    .footeremail h3 {
+        font-size: 0.9rem;
+    }
+    .copyrite {
+        font-size: 0.7rem;
+    }
+    .footersocial {
+        padding: 0;
+        margin-bottom: 5px; 
+    }
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media only screen and (max-width: 425px) {
+    .footerh {
+        font-size: 1rem;
+    }
+    .footeremail h3 {
+        font-size: 0.8rem;
+    }
+    .footersocial img {
+        padding: 0;
+        margin: 5px 0; 
+    }
+    .copyrite {
+        font-size: 0.6rem;
+        margin-bottom: 5px;
+    }
 }
