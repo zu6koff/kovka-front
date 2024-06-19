@@ -37,7 +37,7 @@ const Admin = () => {
     }
   };
   fetchData();
-  }, [currentPage]); 
+  }, [currentPage]);
 
   const handleMenuClick = (menuItem) => {
     setView(menuItem);
@@ -87,15 +87,15 @@ const Admin = () => {
       formData.append('price', productData.price);
       formData.append('img', productData.img);
       formData.append('info', productData.info);
-      formData.append('typeId', productData.typeId); 
-    
-      const token = localStorage.getItem('token'); 
-  
+      formData.append('typeId', productData.typeId);
+
+      const token = localStorage.getItem('token');
+
       const response = await fetch(process.env.REACT_APP_ADMIN_ADD_PRODUCT, {
         method: 'POST',
         body: formData,
         headers: {
-          'Authorization': `Bearer ${token}` 
+          'Authorization': `Bearer ${token}`
         }
       });
       const newProduct = await response.json();
@@ -133,7 +133,7 @@ const Admin = () => {
   const handleEditProduct = (productId) => {
     setEditProductId(productId);
   };
-  
+
   return (
     <div className="admin-container">
       <div className="admin-sidebar">
@@ -151,7 +151,7 @@ const Admin = () => {
           <ul className="products-list">
             {products && products.map((product) => (
               <li key={product.id}>
-                <img src={`http://localhost:3010/${product.img}`} alt={product.direction} />
+                <img src={`${process.env.REACT_APP_BASE_URL}/${product.img}`} alt={product.direction} />
                 <p>{product.direction}</p>
                 <p>{product.price} руб.</p>
                 <div className="product-actions">

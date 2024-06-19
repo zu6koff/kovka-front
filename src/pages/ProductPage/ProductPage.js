@@ -69,7 +69,7 @@ const ProductPage = () => {
       <div className="container">
         <div className="product">
           <div className="product-left">
-            <img src={`http://localhost:3010/${product.img}`} alt="" />
+            <img src={`${process.env.REACT_APP_BASE_URL}/${product.img}`} alt="" />
             <div className="product-info">
               {product.info && product.info.length > 0 && (
                 <>
