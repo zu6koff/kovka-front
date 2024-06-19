@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AddProductForm = ({ onAddProduct, categories, onClose }) => {
+const AddProductForm = ({ onAddProduct, categories = [], onClose }) => {
   const [direction, setDirection] = useState('');
   const [price, setPrice] = useState('');
   const [img, setImg] = useState(null); 
