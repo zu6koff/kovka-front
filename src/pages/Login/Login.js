@@ -11,7 +11,6 @@ const LoginForm = () => {
         try {
             const response = await axios.post(process.env.REACT_APP_USER_LOGIN, { email, password });
             localStorage.setItem('token', response.data.token);
-            // Проверяем роль пользователя и перенаправляем его соответственно
             if (response.data.role === 'ADMIN') {
                 window.location.href = '/admin';
             } else {
@@ -31,7 +30,7 @@ const LoginForm = () => {
             <input
               type="email"
               id="email"
-              placeholder="Enter your email"
+              placeholder="Введите свой email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -39,11 +38,11 @@ const LoginForm = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password" className="form-label">Password</label>
+            <label htmlFor="password" className="form-label">Пароль</label>
             <input
               type="password"
               id="password"
-              placeholder="Enter your password"
+              placeholder="Введите свой пароль"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -51,7 +50,7 @@ const LoginForm = () => {
             />
           </div>
           {error && <div className="error-message">{error}</div>}
-          <button type="submit" className="submit-button">Login</button>
+          <button type="submit" className="submit-button">Войти</button>
         </form>
       </div>
     );

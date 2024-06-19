@@ -1,6 +1,7 @@
-.home{
-   width: 100%;
-   height: auto;
+@import "aos/dist/aos.css";
+.home {
+    width: 100%;
+    height: auto;
 }
 .home-block1{
     width: 100%;
@@ -30,16 +31,20 @@
     padding-bottom: 0;
     display: flex;
     align-items: center;
+    position: relative;
 }
 .img-home-block2{
     width: 50%;
     height: auto;
 }
 .img-home-block2 img{
-    width: 100%;
+    width: 45%;
+    top:5%;
+    position: absolute;
 }
 .txt-home-block2{
     width: 50%;
+    margin-top: 5%;
 }
 .h-block2{
     font-size: 28px;
@@ -49,9 +54,35 @@
     font-size: 20px;
 }
 .h-block2 span{
-    color:orangered;
+    color:#e07c34;
+}
+.btn-on-home{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 6%;
+}
+.btn-on-home1{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 6%;
+  margin-bottom: 10%;
+}
+.in-catalog{
+  width: 250px;
+  font-size: 24px;
+  color: white;
+  background-color:#e07c34;
+  border:none;
+  border-radius: 5px;
+  padding: 5px;
+}
+.in-catalog:hover{
+  background-color:#c76c2c;
 }
 .home-block3{
+    position: relative;
     width: 100%;
     padding: 3%;
     background-color: rgb(27, 27, 27);
@@ -80,60 +111,67 @@
     color:white;
     text-align: center;
 }
-.home-block4{
-    width: 100%;
-    height: auto;
-    padding: 10%;
+.home-block4 {
+  width: 85%;
+  margin: 0 auto;
+  padding-bottom: 5%;
+  overflow: hidden;
+  position: relative;
 }
-.home-block4 h1{
-   font-size: 38px;
-   margin-left: 1%;
+.h-home-block4 {
+    font-size: 28px;
+    padding: 5%;
+    margin-left: 4%;
 }
-.izdelie{
-    margin-top: 10%;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease; 
+  margin-left: -10px; 
 }
-.izdelie img{
-    width: 50%;
-    margin-right:4%;
+.izdelie {
+  flex: 0 0 100%; 
+  box-sizing: border-box; 
 }
-.p-izdelie{
-    width: 40%;
-    margin-left:4%;
+.izdelie-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
 }
-.p-izdelie p{
-    margin-top: 2%;
-    font-size: 20px;
+.p-izdelie {
+  margin-left: 100px;
+  max-width: 600px;
+  font-size: 20px;
 }
-.p-izdelie h1{
-    font-size: 32px;
+.p-izdelie h1 {
+   margin-bottom: 25px;
+  }
+.izdelie-item img {
+    max-width: 750px;   
+    height: 450px;  
+    object-fit: cover;
 }
-.p-izdelie2{
-    width: 40%;
-    margin-right:4%;
+.prev,
+.next {
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  font-size: 48px;
+  position: absolute;
+  top: 40%;
+  background:none;
 }
-.p-izdelie2 p{
-    margin-top: 2%;
-    font-size: 20px;
+.prev {
+  margin-right: 10px;
 }
-.p-izdelie2 h1{
-    font-size: 32px;
+.next {
+  margin-left: 10px;
+  left:96%;
 }
-.izdelie2{
-    margin-top: 10%;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.izdelie2 img{
-    width: 50%;
-    margin-left:4%;
+.prev:hover,
+.next:hover {
+  color: orangered;
 }
 .home-block5{
     background-image: linear-gradient(rgba(22, 22, 22, 0.7), rgba(0, 0, 0, 0.5)), url(https://sun9-71.userapi.com/impg/GHdoaFoUmvCCyeZmFdgfaFRh4wn_Ok9P3uu0bA/vfsZKBaS0Rw.jpg?size=1280x960&quality=95&sign=6f8d82bd7aece607be91c2cd86114e7e&type=album);
@@ -154,4 +192,177 @@
     margin: 1%;
     font-size: 28px;
     color:white;
+}
+.iframe{
+  width: 650px;
+  height: 350px;
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .home-block1, .home-block2, .home-block3, .home-block4, .home-block5 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  .h1-block1 {
+      margin-top: 10%;
+      margin-bottom: 5%;
+      font-size: 28px;
+      width: 100%;
+  }
+  .p-block1 {
+      font-size: 20px; 
+      width: 100%;
+      margin-bottom: 10%;
+  }
+  .img-home-block2, .txt-home-block2 {
+      width: 100%;
+      margin-top: 0;
+  }
+  .img-home-block2 img {
+      position: static;
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+  }
+  .h-block2 {
+      font-size: 24px;
+  }
+
+  .p-block2 {
+      font-size: 18px;
+      margin-top: 20px;
+  }
+  .in-catalog{
+    width: 200px;
+    font-size: 22px;
+    color: white;
+    background-color:#e07c34;
+    border:none;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .icons-card {
+      width: 45%;
+      margin-bottom: 50px;
+      margin-top: 50px;
+  }
+  .h-home-block4 h2{
+    font-size: 32px;
+  }
+  .p-izdelie {
+    width: 500px;
+      margin-left: 0;
+      margin-top: 20px;
+      font-size: 18px;
+  }
+
+  .izdelie-item {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .izdelie-item img {
+      width: 500px;
+      height: 350px;
+      object-fit: cover;
+  }
+
+  .prev, .next {
+      top: 40%;
+      font-size: 24px;
+  }
+  .prev {
+    left: 0%;
+}
+  .textblock{
+    font-size: 32px;
+  }
+  .textb{
+    font-size: 18px;
+    text-align: center;
+  }
+  .iframe{
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .home-block1, .home-block2, .home-block3, .home-block4, .home-block5 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  .h1-block1 {
+      font-size: 22px;
+      width: 100%;
+  }
+  .p-block1 {
+      font-size: 14px;
+      width: 100%;
+  }
+  .p-izdelie {
+    width: 350px;
+      margin-left: 0;
+      margin-top: 20px;
+      font-size: 14px;
+  }
+  .img-home-block2, .txt-home-block2 {
+      width: 100%;
+      margin-top: 0;
+  }
+  .img-home-block2 img {
+      position: static;
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+  }
+  .h-block2 {
+      font-size: 22px;
+  }
+  .p-block2 {
+      font-size: 14px;
+      margin-top: 20px;
+  }
+  .icons-card {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+  .p-izdelie {
+      margin-left: 0;
+      margin-top: 20px;
+      text-align: center;
+  }
+  .h-home-block4 {
+    font-size: 22px;
+    padding: 5%;
+    margin-left: 4%;
+}
+  .izdelie-item {
+      flex-direction: column;
+      align-items: center;
+  }
+  .izdelie-item img {
+      width: 300px;
+      height: auto;
+  }
+  .prev, .next {
+      top: 50%;
+      font-size: 36px;
+  }
+  .textblock{
+    font-size: 24px;
+  }
+  .textb{
+    font-size: 14px;
+    text-align: center;
+  }
+  .iframe{
+    width: 350px;
+  }
+  .btn-on-home button{
+    width: 200px;
+    font-size: 18px;
+  }
 }

@@ -212,3 +212,29 @@
 .add-button-circle:active {
   background-color: #e27639;
 }
+.pagination-admin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+.pagination-admin button {
+  background-color: #e28b4e;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pagination-admin button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-admin span {
+  margin: 0 10px;
+}
