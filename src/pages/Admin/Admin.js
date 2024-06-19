@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import AddProductForm from './AddProductForm';
 import EditProductForm from './EditProductForm';
-
 
 const Admin = () => {
   const [view, setView] = useState('Товары');
@@ -11,38 +10,43 @@ const Admin = () => {
   const [products, setProducts] = useState([]);
   const [showAddProductForm, setShowAddProductForm] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const productListRef = useRef(null);
   const [editProductId, setEditProductId] = useState(null);
+  const limit = 9;
+  const BASE_URL = process.env.REACT_APP_BASE;
 
-  useEffect(() => {
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
-      // Запрос отображения категорий
       const categoriesResponse = await fetch(process.env.REACT_APP_CATALOG_TYPE);
       if (!categoriesResponse.ok) {
         throw new Error('Ошибка загрузки категорий');
       }
       const categoriesData = await categoriesResponse.json();
       setCategories(categoriesData);
-      //Запрос отображения товаров
-      const response = await fetch(`${process.env.REACT_APP_CATALOG_PRODUCT}?limit=9&page=${currentPage}`);
+
+      const response = await fetch(`${process.env.REACT_APP_CATALOG_PRODUCT}?limit=${limit}&page=${currentPage}`);
       if (!response.ok) {
         throw new Error('Ошибка загрузки товаров');
       }
       const data = await response.json();
-      setProducts(data.rows);
+      setProducts(data.rows.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)));
+      setTotalPages(Math.ceil(data.count / limit));
     } catch (error) {
       console.error('Ошибка при загрузке данных:', error);
       alert('Произошла ошибка при загрузке данных: ' + error.message);
     }
-  };
-  fetchData();
   }, [currentPage]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleMenuClick = (menuItem) => {
     setView(menuItem);
   };
-  //Удаление категории
+
+  // Удаление категории
   const handleDeleteCategory = async (categoryId) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_ADMIN_DELETE_TYPE}/${categoryId}`, {
@@ -57,7 +61,8 @@ const Admin = () => {
       alert('Произошла ошибка при удалении категории: ' + error.message);
     }
   };
-  //Добавление категории
+
+  // Добавление категории
   const handleAddCategory = async () => {
     try {
       const response = await fetch(process.env.REACT_APP_ADMIN_ADD_TYPE, {
@@ -79,7 +84,8 @@ const Admin = () => {
       alert('Произошла ошибка при добавлении категории: ' + error.message);
     }
   };
-  //Добавление продукта
+
+  // Добавление продукта
   const handleAddProduct = async (productData) => {
     try {
       const formData = new FormData();
@@ -87,24 +93,25 @@ const Admin = () => {
       formData.append('price', productData.price);
       formData.append('img', productData.img);
       formData.append('info', productData.info);
-      formData.append('typeId', productData.typeId);
-
-      const token = localStorage.getItem('token');
-
+      formData.append('typeId', productData.typeId); 
+    
+      const token = localStorage.getItem('token'); 
       const response = await fetch(process.env.REACT_APP_ADMIN_ADD_PRODUCT, {
         method: 'POST',
         body: formData,
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}` 
         }
       });
-      const newProduct = await response.json();
-      setProducts([...products, newProduct]);
+      await response.json();
+      setShowAddProductForm(false);
+      fetchData();
     } catch (error) {
       console.error('Ошибка при добавлении товара:', error);
       alert('Произошла ошибка при добавлении товара: ' + error.message);
     }
   };
+
   const handleDeleteProduct = async (productId) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_ADMIN_DELETE_PRODUCT}/${productId}`, {
@@ -119,19 +126,24 @@ const Admin = () => {
       alert('Произошла ошибка при удалении товара: ' + error.message);
     }
   };
-
-  //Пагнинация на странице
-  const handlePageChange = (direction) => {
-    if (direction === 'next') {
-      setCurrentPage(currentPage + 1);
-    } else if (direction === 'prev' && currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-    productListRef.current.scrollIntoView({ behavior: 'smooth' });
-  };
-
+  
   const handleEditProduct = (productId) => {
     setEditProductId(productId);
+  };
+
+  const handleProductUpdate = async (updatedProduct) => {
+    try {
+      setProducts((prevProducts) => 
+        prevProducts.map((product) =>
+          product.id === updatedProduct.id ? updatedProduct : product
+        ).sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+      );
+      setEditProductId(null);
+      fetchData();
+    } catch (error) {
+      console.error('Ошибка при обновлении товара:', error);
+      alert('Произошла ошибка при обновлении товара: ' + error.message);
+    }
   };
 
   return (
@@ -144,40 +156,51 @@ const Admin = () => {
       </div>
 
       <div className="admin-content">
-      {view === 'Товары' && (
-        <div className="admin-list">
-          <h2 ref={productListRef}>Список товаров</h2>
-          <button className="add-button-circle" onClick={() => setShowAddProductForm(true)}>+</button>
-          <ul className="products-list">
-            {products && products.map((product) => (
-              <li key={product.id}>
-                <img src={`${process.env.REACT_APP_BASE_URL}/${product.img}`} alt={product.direction} />
-                <p>{product.direction}</p>
-                <p>{product.price} руб.</p>
-                <div className="product-actions">
-                <button className="edit-button" onClick={() => handleEditProduct(product.id)}>&#9998;</button>
-                <button className="delete-button" onClick={() => handleDeleteProduct(product.id)}>&#128465;</button>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="pagination-buttons">
-            <button onClick={() => handlePageChange('prev')} disabled={currentPage === 1}>&#8592;</button>
-            <button onClick={() => handlePageChange('next')}>&#8594;</button>
+        {view === 'Товары' && (
+          <div className="admin-list">
+            <h2 ref={productListRef}>Список товаров</h2>
+            <button className="add-button-circle" onClick={() => setShowAddProductForm(true)}>+</button>
+            <ul className="products-list">
+              {products && products.map((product) => (
+                <li key={product.id}>
+                  <img src={`${BASE_URL}${product.img}`} alt={product.direction} />
+                  <p>{product.direction}</p>
+                  <p>{product.price} руб.</p>
+                  <div className="product-actions">
+                    <button className="edit-button" onClick={() => handleEditProduct(product.id)}>&#9998;</button>
+                    <button className="delete-button" onClick={() => handleDeleteProduct(product.id)}>&#128465;</button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <div className="pagination-admin">
+              <button
+                onClick={() => setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))}
+                disabled={currentPage === 1}
+              >
+                {"<"}
+              </button>
+              <span>{currentPage} / {totalPages}</span>
+              <button
+                onClick={() => setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages))}
+                disabled={currentPage === totalPages}
+              >
+                {">"}
+              </button>
+            </div>
           </div>
-        </div>
-      )}
-       {view === 'Категории' && (
-        <div className="admin-list">
-          <h2>Список категорий</h2>
-          <button className="add-button-circle" onClick={() => setShowAddCategoryForm(true)}>+</button>
-          <ul>
-            {categories.map((category) => (
-              <li key={category.id}>
-                {category.name}
-                <button className="delete-button" onClick={() => handleDeleteCategory(category.id)}>&#128465;</button>
-              </li>
-            ))}
+        )}
+        {view === 'Категории' && (
+          <div className="admin-list">
+            <h2>Список категорий</h2>
+            <button className="add-button-circle" onClick={() => setShowAddCategoryForm(true)}>+</button>
+            <ul>
+              {categories.map((category) => (
+                <li key={category.id}>
+                  {category.name}
+                  <button className="delete-button" onClick={() => handleDeleteCategory(category.id)}>&#128465;</button>
+                </li>
+              ))}
             </ul>
             {showAddCategoryForm && (
               <div className="modal-overlay">
@@ -199,17 +222,18 @@ const Admin = () => {
           </div>
         )}
       </div>
+
       {showAddProductForm && (
         <div className="modal-overlay">
           <div className="modal-product">
-            <AddProductForm onAddProduct={handleAddProduct} categories={categories} onClose={() => setShowAddProductForm(false)} />
+            <AddProductForm onAddProduct={handleAddProduct} onClose={() => { setShowAddProductForm(false); fetchData(); }} />
           </div>
         </div>
       )}
       {editProductId && (
         <div className="modal-overlay">
           <div className="modal-product">
-            <EditProductForm productId={editProductId} onClose={() => setEditProductId(null)} />
+            <EditProductForm productId={editProductId} onClose={() => { setEditProductId(null); fetchData(); }} onUpdateProduct={handleProductUpdate} />
           </div>
         </div>
       )}
