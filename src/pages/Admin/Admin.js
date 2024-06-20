@@ -126,7 +126,7 @@ const Admin = () => {
       alert('Произошла ошибка при удалении товара: ' + error.message);
     }
   };
-  
+
   const handleEditProduct = (productId) => {
     setEditProductId(productId);
   };
@@ -154,7 +154,6 @@ const Admin = () => {
           <li onClick={() => handleMenuClick('Категории')}>Категории</li>
         </ul>
       </div>
-
       <div className="admin-content">
         {view === 'Товары' && (
           <div className="admin-list">
@@ -222,11 +221,10 @@ const Admin = () => {
           </div>
         )}
       </div>
-
       {showAddProductForm && (
         <div className="modal-overlay">
           <div className="modal-product">
-            <AddProductForm onAddProduct={handleAddProduct} onClose={() => { setShowAddProductForm(false); fetchData(); }} />
+            <AddProductForm onAddProduct={handleAddProduct} categories={categories} onClose={() => { setShowAddProductForm(false); fetchData(); }} />
           </div>
         </div>
       )}
