@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 
-const OrderForm = ({ product, price, selectedMaterial, selectedColor, volume, closeModal }) => {
+const OrderForm = ({
+  product,
+  price,
+  selectedMaterial,
+  selectedColor,
+  volume,
+  includeCorrosionProtection,
+  includeGalvanization,
+  closeModal
+}) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -8,35 +17,40 @@ const OrderForm = ({ product, price, selectedMaterial, selectedColor, volume, cl
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     const formData = new FormData();
     formData.append('Название товара', product.direction);
     formData.append('Цена', price.toFixed(2));
     formData.append('Выбранный материал', selectedMaterial);
     formData.append('Выбранный цвет', selectedColor);
+    if (includeCorrosionProtection) {
+      formData.append('Выбранное покрытие', 'Покрытие от коррозии');
+    }
+    if (includeGalvanization) {
+      formData.append('Выбранное покрытие', 'Отцинковывание');
+    }
     formData.append('Объем (кв.м)', volume);
     formData.append('ФИО', name);
     formData.append('Телефон', phone);
     formData.append('Email', email);
-    formData.append('Изображение товара', product.img); 
-
+    formData.append('Изображение товара', product.img);
+    
     try {
-      const response = await fetch('https://formspree.io/f/mayrrkdk', {
+      const response = await fetch('https://formspree.io/f/mgvwwolb', {
         method: 'POST',
         body: formData,
         headers: {
           'Accept': 'application/json'
         }
       });
-
       if (response.ok) {
-        console.log('Form submitted successfully');
-        closeModal(); 
+        console.log('Форма успешно отправлена');
+        closeModal();
       } else {
-        console.error('Failed to submit form');
+        console.error('Не удалось отправить форму');
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Ошибка при отправке формы:', error);
     }
   };
 
@@ -52,19 +66,23 @@ const OrderForm = ({ product, price, selectedMaterial, selectedColor, volume, cl
                 <span className='dir'>{product.direction}</span>
               </div>
               <div className="form-group">
-              <img src={`${BASE_URL}${product.img}`} alt={product.direction} className="product-image"/>
+                <img src={`${BASE_URL}${product.img}`} alt={product.direction} className="product-image"/>
               </div>
               <div className="form-group">
                 <span className='pri'>Цена {price.toFixed(2)} руб.</span>
               </div>
               <div className="form-group">
-                <span>Выбранный материал: {selectedMaterial}</span> 
-              </div>
-              <div className="form-group">
-                <span>Выбранный цвет: {selectedColor}</span>
-              </div>
-              <div className="form-group">
-                <span>Размер (кв.м): {volume}</span>
+                <ul className="parameters-list">
+                  <li>Выбранный материал: {selectedMaterial}</li>
+                  <li>Выбранный цвет: {selectedColor}</li>
+                  <li>Размер (кв.м): {volume}</li>
+                  {includeCorrosionProtection && (
+                    <li>Выбранное покрытие: Покрытие от коррозии</li>
+                  )}
+                  {includeGalvanization && (
+                    <li>Выбранное покрытие: Отцинковывание</li>
+                  )}
+                </ul>
               </div>
             </div>
             <div className="user-group">
