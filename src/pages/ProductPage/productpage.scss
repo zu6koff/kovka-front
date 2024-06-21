@@ -3,11 +3,10 @@
   flex-direction: column;
   align-items: center;
 }
-
 .navigation{
   display: flex;
   width: 65%;
-  justify-content: end;
+  justify-content: flex-end;
   height: auto;
 }
 .back{
@@ -15,8 +14,9 @@
   background: none;
   font-size: 56px;
 }
-.conteiner{
-  width: 80%;
+.container-product{
+  width: 65%;
+  padding-bottom: 5%;
 }
 .product{
 width: 100%;
@@ -28,32 +28,32 @@ width: 100%;
   padding: 2%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .product-left img{
   width: 100%;
   object-fit: cover;
 }
+.product-left h1{
+font-size: 36px;
+font-weight: 500;
+margin-bottom: 10px;
+}
 .product-right{
   width: 45%;
-  padding: 1%;
-  padding-left: 5%;
+  padding: 2%;
+  margin-top: 4%;
   display: flex;
   flex-direction: column;
 }
-.product-right h1{
-  font-size: 36px;
-  font-weight: 500;
-}
-.product-right p{
-  font-size: 24px;
-  margin-top: 10px;
-}
-.description{
-font-size: 22px;
+
+.calculator-description{
+width: 100%;
+font-size: 18px;
+color:#555;
+margin-bottom: 20px;
 }
 .sail{
-  width: 30%;
+  width: 40%;
   padding: 5px;
   border-radius: 5px;
   margin-top: 20px;
@@ -63,15 +63,13 @@ font-size: 22px;
   background-color: #e28b4e;
   color: white;
 }
-.product-info{
+.order-sail{
   width: 100%;
-  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
-.product-info h3{
- font-size: 24px;
-}
-.product-info p{
-  font-size: 18px;
+.product-info{
+    width: 100%;
 }
 .calculate-button {
   width: 35%;
@@ -79,43 +77,32 @@ font-size: 22px;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 10px;
   transition: background-color 0.3s ease;
 }
-
 .calculate-button:hover {
   color: #e28b4e;
 }
 .calculator {
-  max-width: 400px;
+  width: 100%;
   margin-top: 20px;
   transition: max-height 0.3s ease;
   overflow: hidden;
 }
-
 .calculator-row {
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
 }
-
-.check{
-  margin-top: 20px;
-  width: 100%;
-  text-align:left;
-}
-.check2{
-  width: 100%;
-  text-align:left;
-  
+.calculator-row checbox {
+  margin-right: 50px;
 }
 .calculator-row label {
   margin-bottom: 5px;
   font-weight: bold;
   color: #333;
 }
-
 .calculator-row select,
 .calculator-row input {
   padding: 10px;
@@ -125,22 +112,43 @@ font-size: 22px;
   outline: none;
   transition: border-color 0.3s ease;
 }
-
 .calculator-row select:focus,
 .calculator-row input:focus {
   border-color: #e28b4e;
 }
-
-.calculated-price {
+.product-page .calculator-row label {
+display: flex;
+align-items: center;
+font-size: 18px; 
+}
+.product-page .calculator-row input[type="checkbox"] {
+  width: 20px; 
+  height: 20px; 
+  margin-right: 10px; 
+}
+.product-page .calculator-row .description {
+  font-size: 16px; 
+  color: rgb(134, 134, 134); 
+  margin-left: 30px; 
+}
+.product-page .calculator select {
+  font-size: 18px; 
+}
+.product-page .calculator input[type="number"] {
+  font-size: 18px;
+}
+.product-page .calculated-price {
+  font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
+}
+.product-page .sail {
   font-size: 20px;
-  font-weight: bold;
-  color: #333;
-  margin-top: 10px;
-  text-align: center;
 }
 .opisanie {
-  margin-top: 10px;
-  padding: 10px;
+  margin-top: 30px;
 }
 .opisanie h3 {
   font-size: 24px;
@@ -163,9 +171,122 @@ font-size: 22px;
   color: #000000;
   margin-right: 10px;
 }
-
 .info-item p {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
   color: #555;
+}
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .navigation {
+    width: 80%;
+    justify-content: flex-end; 
+    font-size: 32px;
+  }
+  .back {
+    font-size: 30px; 
+  }
+  .container-product {
+    width: 85%; 
+  }
+  .product {
+    flex-direction: column; 
+    align-items: center;
+  }
+  .product-left,
+  .product-right {
+    width: 100%; 
+    padding: 2%;
+  }
+  .calculator-description {
+    font-size: 18px; 
+  }
+  .sail {
+    width: 70%; 
+    font-size: 16px; 
+  }
+  .calculator-row select,
+  .calculator-row input {
+    padding: 6px; 
+    font-size: 16px; 
+  }
+  .calculated-price {
+    font-size: 18px; 
+  }
+  .opisanie h3 {
+    font-size: 18px; 
+  }
+  .info-marker {
+    font-size: 18px; 
+    margin-right: 6px; 
+  }
+  .info-item p {
+    font-size: 18px; 
+  }
+}
+
+@media (max-width: 425px) {
+  .navigation {
+    width: 90%;
+    justify-content: flex-end; 
+  }
+  .back {
+    font-size: 24px; 
+  }
+  .container-product {
+    width: 95%; 
+  }
+  .product {
+    flex-direction: column; 
+    align-items: center;
+  }
+  .product-left,
+  .product-right {
+    width: 100%; 
+    padding: 2%;
+  }
+  .sail {
+    width: 80%; 
+  }
+  .calculator-description{
+    font-size: 14px;
+  }
+  .calculator-row select,
+  .calculator-row input {
+    padding: 4px; 
+    font-size: 14px; 
+  }
+  .product-page .calculator-row label {
+    display: flex;
+    align-items: center;
+    font-size: 14px; 
+  }
+  .product-page .calculator-row input[type="checkbox"] {
+    width: 20px; 
+    height: 20px; 
+    margin-right: 10px; 
+  }
+  .product-page .calculator-row .description {
+    font-size: 14px; 
+    color: rgb(134, 134, 134); 
+    margin-left: 30px; 
+  }
+  .product-page .calculator select {
+    font-size: 18px; 
+  }
+  .product-page .calculator input[type="number"] {
+    font-size: 18px;
+  }
+  .calculated-price {
+    font-size: 14px; 
+  }
+  .opisanie h3 {
+    font-size: 16px; 
+  }
+  .info-marker {
+    font-size: 14px; 
+    margin-right: 4px; 
+  }
+  .info-item p {
+    font-size: 14px; 
+  }
 }
